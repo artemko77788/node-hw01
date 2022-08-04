@@ -25,7 +25,7 @@ const removeContact = async (contactId) => {
     return null
   }
   console.log(idx)
-  const newContacts = products.splice(idx, 1)
+  products.splice(idx, 1)
   await fs.writeFile(contactsPath, JSON.stringify(products))
   return products
 }

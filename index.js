@@ -16,7 +16,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case 'list':
       const contacts = await operations.listContacts()
-      console.log(contacts)
+      console.table(contacts)
       break
 
     case 'get':
@@ -24,17 +24,17 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       if (!contact) {
         throw new Error(`Contact with ${id} not find`)
       }
-      console.log(contact)
+      console.table(contact)
       break
 
     case 'add':
       const newContacts = await operations.addContact(name, email, phone)
-      console.log(newContacts)
+      console.table(newContacts)
       break
 
     case 'remove':
       const newArrAfterRemove = await operations.removeContact(id)
-      console.log(newArrAfterRemove)
+      console.table(newArrAfterRemove)
       break
 
     default:
